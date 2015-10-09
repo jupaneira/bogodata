@@ -1,0 +1,30 @@
+<html>
+    <head>
+    <script>
+        function myfunction(){
+            var str1 = "{{ image.lat }}";
+	    var str2 = "{{ image.lon }}";
+	    var str3 = ",";
+            var location = str1.concat(str3, str2);
+	    
+	    var parte1 = "http://maps.googleapis.com/maps/api/streetview?location=";
+	    var parte2 = "&size=600x400&fov=120&heading=0&pitch=10&key=AIzaSyCaIWjWBPQYqlMZJzMu-BDhUNdzLAkMWk4";
+ 	    var url = parte1.concat(location, parte2);
+            
+	    document.getElementById("img1").src=url;
+        }
+    </script>
+    </head>
+    <body onload="myfunction();">
+        <div>
+            <h1><a href="/">Django Girls Blog</a></h1>
+        </div>   
+        <div>
+            <p>published: {{ image.lat }}</p>
+            <p>published: {{ image.lon }}</p>	    
+	    <a href="#" onLoad="myfunction()"><img title="The Link" id="img1"/></a>
+        </div>
+    </body>
+</html>
+
+
